@@ -20,23 +20,18 @@ public:
     MainWidget(QWidget* parent = nullptr);
     ~MainWidget();
     void connectDatabase();  //连接数据库
-    void tableWidgetListData();  //初始化表格控件
-
+    void tableWidgetInit(); // 初始化表格控件
+    void tableWidgetInitData(); // 初始化表格数据
 private slots:
     void on_newbutton_clicked();
-
     void on_deletebutton_clicked();
-
     void on_addbutton_clicked();
-
     void on_decreasebutton_clicked();
-
     void on_exportbutton_clicked();
-
     void on_sumbutton_clicked();
-
     void on_lookupbutton_clicked();
-
+    void newStockEnd();
+    void addStockEnd();
 private:
     Ui::MainWidget *ui;
 };

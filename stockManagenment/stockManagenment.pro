@@ -9,13 +9,19 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addstock.cpp \
+    inAndOutbord.cpp \
     main.cpp \
     mainwidget.cpp
 
 HEADERS += \
+    addstock.h \
+    inAndOutbord.h \
     mainwidget.h
 
 FORMS += \
+    addstock.ui \
+    inAndOutbord.ui \
     mainwidget.ui
 
 # Default rules for deployment.
