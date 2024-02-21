@@ -30,7 +30,7 @@ MainWidget::~MainWidget()
 void MainWidget::connectDatabase()
 {
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
-    database.setDatabaseName("inventory.db");
+    database.setDatabaseName("../stockManagenment/inventory.db");
     if (!database.open()) {
         QMessageBox::information(nullptr, "连接数据库", "数据库连接失败，ERROR", QMessageBox::Ok);
     }
@@ -115,7 +115,7 @@ void MainWidget::on_deletebutton_clicked()
     int res = QMessageBox::warning(this, "确认删除", tr("是否删除编号为 %1 的商品 %2").arg(id).arg(name), QMessageBox::Yes, QMessageBox::No);
     if (res == QMessageBox::Yes) {
         QSqlQuery query;
-        query.exec(tr("de#include <QStringList>lete from stock where id = %1").arg(id));
+        query.exec(tr("delete from stock where id = %1").arg(id));
         ui->tableWidget->clear();
         //重新加载表格
         tableWidgetInitData();
