@@ -10,17 +10,20 @@ CONFIG += c++17
 
 SOURCES += \
     addstock.cpp \
+    datasum.cpp \
     inAndOutbord.cpp \
     main.cpp \
     mainwidget.cpp
 
 HEADERS += \
     addstock.h \
+    datasum.h \
     inAndOutbord.h \
     mainwidget.h
 
 FORMS += \
     addstock.ui \
+    datasum.ui \
     inAndOutbord.ui \
     mainwidget.ui
 

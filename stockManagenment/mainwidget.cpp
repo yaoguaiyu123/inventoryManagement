@@ -2,25 +2,8 @@
 #include "ui_mainwidget.h"
 #include "addstock.h"
 #include "inAndOutbord.h"
+#include "datasum.h"
 
-// 无名名字空间
-namespace {
-// 找寻未存在的文件名
-void searchDir(QStringList& list, QString name, int& level)
-{
-    for (auto e : list) {
-        // 去掉文件名的后缀
-        int index = e.lastIndexOf('.');
-        e.remove(index, e.length() - index);
-        if (level == 0 && e == name) {
-            searchDir(list, name, ++level);
-        }
-        if (QObject::tr("%1(%2)").arg(name).arg(level) == e) {
-            searchDir(list, name, ++level);
-        }
-    }
-}
-}
 
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
@@ -132,7 +115,7 @@ void MainWidget::on_deletebutton_clicked()
     int res = QMessageBox::warning(this, "确认删除", tr("是否删除编号为 %1 的商品 %2").arg(id).arg(name), QMessageBox::Yes, QMessageBox::No);
     if (res == QMessageBox::Yes) {
         QSqlQuery query;
-        query.exec(tr("delete from stock where id = %1").arg(id));
+        query.exec(tr("de#include <QStringList>lete from stock where id = %1").arg(id));
         ui->tableWidget->clear();
         //重新加载表格
         tableWidgetInitData();
@@ -162,7 +145,7 @@ void MainWidget::on_exportbutton_clicked()
     QStringList files = dir.entryList(QDir::Files);
     QString name("result"), allName;
     int level = 0;
-    searchDir(files, name, level);
+    DataSum::searchDir(files, name, level);
     //    qDebug() << level;
     if (level == 0) {
         allName = tr("%1.csv").arg(name);
@@ -204,10 +187,11 @@ void MainWidget::on_exportbutton_clicked()
 
 }
 
-
+//数据汇总
 void MainWidget::on_sumbutton_clicked()
 {
-
+    DataSum* dataSum = new DataSum();
+    dataSum->show();
 }
 
 void MainWidget::on_lookupbutton_clicked()

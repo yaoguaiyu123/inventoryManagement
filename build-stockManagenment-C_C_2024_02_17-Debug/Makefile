@@ -53,18 +53,22 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../stockManagenment/addstock.cpp \
+		../stockManagenment/datasum.cpp \
 		../stockManagenment/inAndOutbord.cpp \
 		../stockManagenment/main.cpp \
 		../stockManagenment/mainwidget.cpp qrc_images.cpp \
 		moc_addstock.cpp \
+		moc_datasum.cpp \
 		moc_inAndOutbord.cpp \
 		moc_mainwidget.cpp
 OBJECTS       = addstock.o \
+		datasum.o \
 		inAndOutbord.o \
 		main.o \
 		mainwidget.o \
 		qrc_images.o \
 		moc_addstock.o \
+		moc_datasum.o \
 		moc_inAndOutbord.o \
 		moc_mainwidget.o
 DIST          = /opt/Qt/6.5.3/gcc_64/mkspecs/features/spec_pre.prf \
@@ -364,8 +368,10 @@ DIST          = /opt/Qt/6.5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/lex.prf \
 		../stockManagenment/stockManagenment.pro ../stockManagenment/addstock.h \
+		../stockManagenment/datasum.h \
 		../stockManagenment/inAndOutbord.h \
 		../stockManagenment/mainwidget.h ../stockManagenment/addstock.cpp \
+		../stockManagenment/datasum.cpp \
 		../stockManagenment/inAndOutbord.cpp \
 		../stockManagenment/main.cpp \
 		../stockManagenment/mainwidget.cpp
@@ -377,7 +383,7 @@ TARGET        = stockManagenment
 first: all
 ####### Build rules
 
-stockManagenment: ui_addstock.h ui_inAndOutbord.h ui_mainwidget.h $(OBJECTS)  
+stockManagenment: ui_addstock.h ui_datasum.h ui_inAndOutbord.h ui_mainwidget.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../stockManagenment/stockManagenment.pro /opt/Qt/6.5.3/gcc_64/mkspecs/linux-g++/qmake.conf /opt/Qt/6.5.3/gcc_64/mkspecs/features/spec_pre.prf \
@@ -1001,9 +1007,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../stockManagenment/images.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt/6.5.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../stockManagenment/addstock.h ../stockManagenment/inAndOutbord.h ../stockManagenment/mainwidget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../stockManagenment/addstock.cpp ../stockManagenment/inAndOutbord.cpp ../stockManagenment/main.cpp ../stockManagenment/mainwidget.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../stockManagenment/addstock.ui ../stockManagenment/inAndOutbord.ui ../stockManagenment/mainwidget.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../stockManagenment/addstock.h ../stockManagenment/datasum.h ../stockManagenment/inAndOutbord.h ../stockManagenment/mainwidget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../stockManagenment/addstock.cpp ../stockManagenment/datasum.cpp ../stockManagenment/inAndOutbord.cpp ../stockManagenment/main.cpp ../stockManagenment/mainwidget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../stockManagenment/addstock.ui ../stockManagenment/datasum.ui ../stockManagenment/inAndOutbord.ui ../stockManagenment/mainwidget.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1048,9 +1054,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /opt/Qt/6.5.3/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -dM -E -o moc_predefs.h /opt/Qt/6.5.3/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_addstock.cpp moc_inAndOutbord.cpp moc_mainwidget.cpp
+compiler_moc_header_make_all: moc_addstock.cpp moc_datasum.cpp moc_inAndOutbord.cpp moc_mainwidget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_addstock.cpp moc_inAndOutbord.cpp moc_mainwidget.cpp
+	-$(DEL_FILE) moc_addstock.cpp moc_datasum.cpp moc_inAndOutbord.cpp moc_mainwidget.cpp
 moc_addstock.cpp: ../stockManagenment/addstock.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QWidget \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1225,6 +1231,167 @@ moc_addstock.cpp: ../stockManagenment/addstock.h \
 		moc_predefs.h \
 		/opt/Qt/6.5.3/gcc_64/libexec/moc
 	/opt/Qt/6.5.3/gcc_64/libexec/moc $(DEFINES) --include /run/media/root/study/QTprojects/03/inventoryManagement/build-stockManagenment-C_C_2024_02_17-Debug/moc_predefs.h -I/opt/Qt/6.5.3/gcc_64/mkspecs/linux-g++ -I/run/media/root/study/QTprojects/03/inventoryManagement/stockManagenment -I/opt/Qt/6.5.3/gcc_64/include -I/opt/Qt/6.5.3/gcc_64/include/QtWidgets -I/opt/Qt/6.5.3/gcc_64/include/QtGui -I/opt/Qt/6.5.3/gcc_64/include/QtSql -I/opt/Qt/6.5.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13.2.1 -I/usr/include/c++/13.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/13.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include-fixed -I/usr/include ../stockManagenment/addstock.h -o moc_addstock.cpp
+
+moc_datasum.cpp: ../stockManagenment/datasum.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QWidget \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qwidget.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtversionchecks.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtconfigmacros.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtcoreexports.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtnoop.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qassert.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtypes.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtversion.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcompare_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qconstructormacros.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qexceptionhandling.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qforeach.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qttypetraits.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfunctionpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmalloc.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qminmax.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qoverload.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qswap.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtresource.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qttranslation.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtguiexports.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtmetamacros.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qarraydatapointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qarraydataops.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qxptype_traits.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbytearrayview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringfwd.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/q20type_traits.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qanystringview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qutf8stringview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringtokenizer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcompare.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qiodevicebase.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfloat16.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmath.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qiterable.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmetacontainer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcontainerinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtaggedpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qscopeguard.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbindingstorage.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qaction.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qline.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringconverter_base.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qshareddata_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qset.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/q20memory.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qfontmetrics.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qfontinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qcursor.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qbitmap.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qeventpoint.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qvectornd.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpointingdevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qinputdevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QList \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QObject \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QRect \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QSize \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/QTransform \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qnativeinterface.h \
+		moc_predefs.h \
+		/opt/Qt/6.5.3/gcc_64/libexec/moc
+	/opt/Qt/6.5.3/gcc_64/libexec/moc $(DEFINES) --include /run/media/root/study/QTprojects/03/inventoryManagement/build-stockManagenment-C_C_2024_02_17-Debug/moc_predefs.h -I/opt/Qt/6.5.3/gcc_64/mkspecs/linux-g++ -I/run/media/root/study/QTprojects/03/inventoryManagement/stockManagenment -I/opt/Qt/6.5.3/gcc_64/include -I/opt/Qt/6.5.3/gcc_64/include/QtWidgets -I/opt/Qt/6.5.3/gcc_64/include/QtGui -I/opt/Qt/6.5.3/gcc_64/include/QtSql -I/opt/Qt/6.5.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13.2.1 -I/usr/include/c++/13.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/13.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include-fixed -I/usr/include ../stockManagenment/datasum.h -o moc_datasum.cpp
 
 moc_inAndOutbord.cpp: ../stockManagenment/inAndOutbord.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QWidget \
@@ -1587,6 +1754,7 @@ moc_mainwidget.cpp: ../stockManagenment/mainwidget.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtGui/qdesktopservices.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/QDir \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/QStringList \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QTextStream \
 		moc_predefs.h \
 		/opt/Qt/6.5.3/gcc_64/libexec/moc
 	/opt/Qt/6.5.3/gcc_64/libexec/moc $(DEFINES) --include /run/media/root/study/QTprojects/03/inventoryManagement/build-stockManagenment-C_C_2024_02_17-Debug/moc_predefs.h -I/opt/Qt/6.5.3/gcc_64/mkspecs/linux-g++ -I/run/media/root/study/QTprojects/03/inventoryManagement/stockManagenment -I/opt/Qt/6.5.3/gcc_64/include -I/opt/Qt/6.5.3/gcc_64/include/QtWidgets -I/opt/Qt/6.5.3/gcc_64/include/QtGui -I/opt/Qt/6.5.3/gcc_64/include/QtSql -I/opt/Qt/6.5.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13.2.1 -I/usr/include/c++/13.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/13.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include-fixed -I/usr/include ../stockManagenment/mainwidget.h -o moc_mainwidget.cpp
@@ -1595,12 +1763,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_addstock.h ui_inAndOutbord.h ui_mainwidget.h
+compiler_uic_make_all: ui_addstock.h ui_datasum.h ui_inAndOutbord.h ui_mainwidget.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_addstock.h ui_inAndOutbord.h ui_mainwidget.h
+	-$(DEL_FILE) ui_addstock.h ui_datasum.h ui_inAndOutbord.h ui_mainwidget.h
 ui_addstock.h: ../stockManagenment/addstock.ui \
 		/opt/Qt/6.5.3/gcc_64/libexec/uic
 	/opt/Qt/6.5.3/gcc_64/libexec/uic ../stockManagenment/addstock.ui -o ui_addstock.h
+
+ui_datasum.h: ../stockManagenment/datasum.ui \
+		/opt/Qt/6.5.3/gcc_64/libexec/uic
+	/opt/Qt/6.5.3/gcc_64/libexec/uic ../stockManagenment/datasum.ui -o ui_datasum.h
 
 ui_inAndOutbord.h: ../stockManagenment/inAndOutbord.ui \
 		/opt/Qt/6.5.3/gcc_64/libexec/uic
@@ -1838,6 +2010,166 @@ addstock.o: ../stockManagenment/addstock.cpp ../stockManagenment/addstock.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/QRandomGenerator \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qrandom.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addstock.o ../stockManagenment/addstock.cpp
+
+datasum.o: ../stockManagenment/datasum.cpp ../stockManagenment/datasum.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QWidget \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qwidget.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtversionchecks.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtconfigmacros.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtcoreexports.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtnoop.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qassert.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtypes.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtversion.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcompare_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qconstructormacros.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qexceptionhandling.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qforeach.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qttypetraits.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfunctionpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmalloc.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qminmax.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qoverload.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qswap.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtresource.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qttranslation.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtguiexports.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtmetamacros.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qarraydatapointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qarraydataops.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qxptype_traits.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbytearrayview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringfwd.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/q20type_traits.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qanystringview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qutf8stringview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringtokenizer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcompare.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qiodevicebase.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfloat16.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmath.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qiterable.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmetacontainer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcontainerinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtaggedpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qscopeguard.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qbindingstorage.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qaction.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qline.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qstringconverter_base.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qshareddata_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qset.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/q20memory.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qfontmetrics.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qfontinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qcursor.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qbitmap.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qeventpoint.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qvectornd.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpointingdevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qinputdevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QList \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QObject \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QRect \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QSize \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/QTransform \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qnativeinterface.h \
+		ui_datasum.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o datasum.o ../stockManagenment/datasum.cpp
 
 inAndOutbord.o: ../stockManagenment/inAndOutbord.cpp ../stockManagenment/inAndOutbord.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QWidget \
@@ -2251,6 +2583,7 @@ main.o: ../stockManagenment/main.cpp ../stockManagenment/mainwidget.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtGui/qdesktopservices.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/QDir \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/QStringList \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QTextStream \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QApplication \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication.h \
@@ -2457,6 +2790,7 @@ mainwidget.o: ../stockManagenment/mainwidget.cpp ../stockManagenment/mainwidget.
 		/opt/Qt/6.5.3/gcc_64/include/QtGui/qdesktopservices.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/QDir \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/QStringList \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QTextStream \
 		ui_mainwidget.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/QVariant \
 		/opt/Qt/6.5.3/gcc_64/include/QtGui/QIcon \
@@ -2517,7 +2851,8 @@ mainwidget.o: ../stockManagenment/mainwidget.cpp ../stockManagenment/mainwidget.
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtableview.h \
 		../stockManagenment/addstock.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/QDateTime \
-		../stockManagenment/inAndOutbord.h
+		../stockManagenment/inAndOutbord.h \
+		../stockManagenment/datasum.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwidget.o ../stockManagenment/mainwidget.cpp
 
 qrc_images.o: qrc_images.cpp 
@@ -2525,6 +2860,9 @@ qrc_images.o: qrc_images.cpp
 
 moc_addstock.o: moc_addstock.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addstock.o moc_addstock.cpp
+
+moc_datasum.o: moc_datasum.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_datasum.o moc_datasum.cpp
 
 moc_inAndOutbord.o: moc_inAndOutbord.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_inAndOutbord.o moc_inAndOutbord.cpp
