@@ -26,7 +26,7 @@ void InAndOutbord::initCombobox()
     QSqlQuery query;
     query.exec("select * from stock");
     while (query.next()) {
-        qDebug() << query.value(0).toString();
+//        qDebug() << query.value(0).toString();
         ui->comboBox->insertItem(i++, query.value(0).toString());
     }
 }
@@ -51,6 +51,7 @@ void InAndOutbord::on_addButton_clicked()
         nowAmount = query.value(0).toInt();
     }
     int amount;
+    qDebug() <<"m_mode"<< m_mode;
     if (m_mode == 0) { // 当前是入库模式
         amount = nowAmount + addAmount;
     }else{              //当前是出库模式
@@ -79,8 +80,8 @@ void InAndOutbord::on_closeButton_clicked()
 
 void InAndOutbord::on_transButton_clicked()
 {
-    changeDisplay();
     m_mode = 1 - m_mode;
+    changeDisplay();
 }
 
 void InAndOutbord::changeDisplay()

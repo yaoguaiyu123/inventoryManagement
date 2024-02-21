@@ -342,6 +342,7 @@ DIST          = /opt/Qt/6.5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/spec_post.prf \
+		../stockManagenment/.qmake.stash \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/default_pre.prf \
@@ -654,6 +655,7 @@ Makefile: ../stockManagenment/stockManagenment.pro /opt/Qt/6.5.3/gcc_64/mkspecs/
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt/6.5.3/gcc_64/mkspecs/features/default_pre.prf \
@@ -956,6 +958,7 @@ Makefile: ../stockManagenment/stockManagenment.pro /opt/Qt/6.5.3/gcc_64/mkspecs/
 /opt/Qt/6.5.3/gcc_64/mkspecs/features/qt_config.prf:
 /opt/Qt/6.5.3/gcc_64/mkspecs/linux-g++/qmake.conf:
 /opt/Qt/6.5.3/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /opt/Qt/6.5.3/gcc_64/mkspecs/features/exclusive_builds.prf:
 /opt/Qt/6.5.3/gcc_64/mkspecs/features/toolchain.prf:
 /opt/Qt/6.5.3/gcc_64/mkspecs/features/default_pre.prf:
@@ -1571,6 +1574,19 @@ moc_mainwidget.cpp: ../stockManagenment/mainwidget.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qdialog.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QFileDialog \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdir.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfileinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcalendar.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/QDesktopServices \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qdesktopservices.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QDir \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QStringList \
 		moc_predefs.h \
 		/opt/Qt/6.5.3/gcc_64/libexec/moc
 	/opt/Qt/6.5.3/gcc_64/libexec/moc $(DEFINES) --include /run/media/root/study/QTprojects/03/inventoryManagement/build-stockManagenment-C_C_2024_02_17-Debug/moc_predefs.h -I/opt/Qt/6.5.3/gcc_64/mkspecs/linux-g++ -I/run/media/root/study/QTprojects/03/inventoryManagement/stockManagenment -I/opt/Qt/6.5.3/gcc_64/include -I/opt/Qt/6.5.3/gcc_64/include/QtWidgets -I/opt/Qt/6.5.3/gcc_64/include/QtGui -I/opt/Qt/6.5.3/gcc_64/include/QtSql -I/opt/Qt/6.5.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13.2.1 -I/usr/include/c++/13.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/13.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include-fixed -I/usr/include ../stockManagenment/mainwidget.h -o moc_mainwidget.cpp
@@ -1776,6 +1792,46 @@ addstock.o: ../stockManagenment/addstock.cpp ../stockManagenment/addstock.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcalendar.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlocale.h \
 		ui_addstock.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QVariant \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/QIcon \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfuture.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfutureinterface.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtsan_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qresultstore.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfuture_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qthreadpool.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qthread.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qelapsedtimer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qrunnable.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qexception.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpromise.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpicture.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qdialog.h \
@@ -1957,7 +2013,59 @@ inAndOutbord.o: ../stockManagenment/inAndOutbord.cpp ../stockManagenment/inAndOu
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdatetime.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcalendar.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlocale.h \
-		ui_inAndOutbord.h
+		ui_inAndOutbord.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QVariant \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfuture.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfutureinterface.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtsan_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qresultstore.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfuture_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qthreadpool.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qthread.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qelapsedtimer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qrunnable.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qexception.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpromise.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QComboBox \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qcombobox.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QGroupBox \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qgroupbox.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpicture.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o inAndOutbord.o ../stockManagenment/inAndOutbord.cpp
 
 main.o: ../stockManagenment/main.cpp ../stockManagenment/mainwidget.h \
@@ -2130,6 +2238,19 @@ main.o: ../stockManagenment/main.cpp ../stockManagenment/mainwidget.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qdialog.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QFileDialog \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdir.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfileinfo.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcalendar.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/QDesktopServices \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qdesktopservices.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QDir \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QStringList \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QApplication \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication.h \
@@ -2150,7 +2271,6 @@ main.o: ../stockManagenment/main.cpp ../stockManagenment/mainwidget.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpromise.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtGui/qguiapplication.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlocale.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtGui/qguiapplication_platform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../stockManagenment/main.cpp
 
@@ -2324,12 +2444,79 @@ mainwidget.o: ../stockManagenment/mainwidget.cpp ../stockManagenment/mainwidget.
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qdialog.h \
-		ui_mainwidget.h \
-		../stockManagenment/addstock.h \
-		/opt/Qt/6.5.3/gcc_64/include/QtCore/QDateTime \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QFileDialog \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdir.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfileinfo.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdatetime.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcalendar.h \
 		/opt/Qt/6.5.3/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/QDesktopServices \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qdesktopservices.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QDir \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QStringList \
+		ui_mainwidget.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QVariant \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/QIcon \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfuture.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfutureinterface.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qtsan_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qresultstore.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qfuture_impl.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qthreadpool.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qthread.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qelapsedtimer.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qrunnable.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qexception.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qpromise.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpicture.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/QTableWidget \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtablewidget.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtWidgets/qtableview.h \
+		../stockManagenment/addstock.h \
+		/opt/Qt/6.5.3/gcc_64/include/QtCore/QDateTime \
 		../stockManagenment/inAndOutbord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwidget.o ../stockManagenment/mainwidget.cpp
 

@@ -3,6 +3,25 @@
 #include "addstock.h"
 #include "inAndOutbord.h"
 
+// 无名名字空间
+namespace {
+// 找寻未存在的文件名
+void searchDir(QStringList& list, QString name, int& level)
+{
+    for (auto e : list) {
+        // 去掉文件名的后缀
+        int index = e.lastIndexOf('.');
+        e.remove(index, e.length() - index);
+        if (level == 0 && e == name) {
+            searchDir(list, name, ++level);
+        }
+        if (QObject::tr("%1(%2)").arg(name).arg(level) == e) {
+            searchDir(list, name, ++level);
+        }
+    }
+}
+}
+
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
@@ -78,11 +97,11 @@ void MainWidget::tableWidgetInitData(){
         ui->tableWidget->setItem(i, 6, new QTableWidgetItem(query.value(6).toString()));
         ui->tableWidget->setItem(i, 7, new QTableWidgetItem(query.value(7).toString()));
         ui->tableWidget->setItem(i, 8, new QTableWidgetItem(query.value(8).toString()));
-        ui->tableWidget->setItem(i, 9, new QTableWidgetItem(query.value(9).toString()));
         i++;
     }
 }
 
+//添加商品
 void MainWidget::on_newbutton_clicked()
 {
     Addstock* addStockWidget = new Addstock();
@@ -90,10 +109,34 @@ void MainWidget::on_newbutton_clicked()
     connect(addStockWidget, SIGNAL(oneOperationEnd()), this, SLOT(newStockEnd()));
 }
 
-
+//删除商品
 void MainWidget::on_deletebutton_clicked()
 {
+    // 首先获取当前表格中不为空行的行数
+    int i = 0;
+    for (i = 0; i < ui->tableWidget->rowCount(); ++i) {
+        if (ui->tableWidget->item(i, 0) ==nullptr) {
+            break;
+        }
+    }
 
+    int norow = ui->tableWidget->currentRow();
+    qDebug() << i;
+    if (norow < 0 || norow >= i) {
+        QMessageBox::information(this, "提示", "请先选择要删除的商品");
+        return;
+    }
+    ui->tableWidget->selectRow(norow);
+    QString id = ui->tableWidget->item(norow, 0)->text();
+    QString name = ui->tableWidget->item(norow, 1)->text();
+    int res = QMessageBox::warning(this, "确认删除", tr("是否删除编号为 %1 的商品 %2").arg(id).arg(name), QMessageBox::Yes, QMessageBox::No);
+    if (res == QMessageBox::Yes) {
+        QSqlQuery query;
+        query.exec(tr("delete from stock where id = %1").arg(id));
+        ui->tableWidget->clear();
+        //重新加载表格
+        tableWidgetInitData();
+    }
 }
 
 //商品入库按钮
@@ -112,9 +155,52 @@ void MainWidget::on_decreasebutton_clicked()
     connect(inAndoutbord, SIGNAL(oneOperationEnd()), this, SLOT(addStockEnd()));
 }
 
-
+//导出数据
 void MainWidget::on_exportbutton_clicked()
 {
+    QDir dir(".");
+    QStringList files = dir.entryList(QDir::Files);
+    QString name("result"), allName;
+    int level = 0;
+    searchDir(files, name, level);
+    //    qDebug() << level;
+    if (level == 0) {
+        allName = tr("%1.csv").arg(name);
+    } else {
+        allName = tr("%1(%2).csv").arg(name).arg(level);
+    }
+    QFile file(allName);
+    if (file.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
+        QTextStream stream(&file);
+        // 写入表格中的数据到csv文件
+        int i;
+        int columnCount = ui->tableWidget->columnCount();
+        //        qDebug() << columnCount;
+        for (i = 0; i < columnCount - 1; i++) {
+            stream << ui->tableWidget->horizontalHeaderItem(i)->text() << ",";
+        }
+        stream << ui->tableWidget->horizontalHeaderItem(i)->text() << "\n";
+        bool flag = false;
+        for (i = 0; i < ui->tableWidget->rowCount(); ++i) {
+            for (int j = 0; j < columnCount; ++j) {
+                QTableWidgetItem* item = ui->tableWidget->item(i, j);
+                if (item == nullptr) {
+                    flag = true;
+                    break;
+                }
+                stream << item->text();
+                if (j < columnCount - 1) {
+                    stream << ",";
+                }
+            }
+            if (flag) {
+                break;
+            }
+            stream << "\n";
+        }
+    }
+    QMessageBox::information(this, "提示", tr("您的数据已保存到文件%1").arg(allName));
+
 
 }
 

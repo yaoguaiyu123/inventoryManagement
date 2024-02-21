@@ -23,7 +23,6 @@ public:
 private slots:
     void on_addButton_clicked();
     void on_exitButton_clicked();
-
     void on_resetButon_clicked();
 signals:
     int oneOperationEnd();

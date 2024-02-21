@@ -7,6 +7,11 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QDesktopServices>
+#include <QDir>
+#include <QStringList>
+#include <QTextStream>
 
 QT_BEGIN_NAMESPACE
     namespace Ui { class MainWidget; }
